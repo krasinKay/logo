@@ -1,10 +1,11 @@
 @import 'fonts';
 @import 'null';
 
+@import 'header';
 
 //&display=swap&subset=cyrillic-ext
 @import "fonts";
-@import url("https://fonts.googleapis.com/css?family=Roboto:300,regular,500,700,&display=swap&subset=cyrillic-ext");
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,regular,500,700,900,&display=swap&subset=cyrillic-ext");
 
 //шрифт по умолчанию
 $fontFamily: 'Roboto';
@@ -14,9 +15,9 @@ $minWidth:320px;
 $maxWidth:1400;
 $maxWidthContainer: 1180;
 $md1: $maxWidthContainer + 12;
-$md2: 991.98;
-$md3: 767.98;
-$md4: 479.98;
+$md2: 991.98px;
+$md3: 767.98px;
+$md4: 479.98px;
 
 body {
 	color: #000;
@@ -41,6 +42,9 @@ body {
 	max-width: $maxWidthContainer+px;
 	margin: 0 auto;
 	padding: 0 40px;
+	@media (max-width: 767px){
+		padding: 0 20px;
+	}
 	/*
 	@media (max-width: $md1px){
 		max-width: 970px;
@@ -52,4 +56,5 @@ body {
 		max-width: none;
 		padding: 0 10px;
 	}*/
-}
+};
+
