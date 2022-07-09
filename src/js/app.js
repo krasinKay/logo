@@ -159,3 +159,10 @@ menuPageBurger.addEventListener('click', function (event) {
 	menuPageBurger.classList.toggle('_active')
 	menuPageBody.classList.toggle('_active')
 })
+
+const serchTitle	 = document.querySelector('.serch-page__title');
+const categoriesSerch = document.querySelector('.categories-serch');
+
+serchTitle. addEventListener('click', function(event){
+	categoriesSerch.classList.toggle('_active')
+})

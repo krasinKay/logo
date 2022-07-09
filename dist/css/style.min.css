@@ -679,7 +679,7 @@ body._lock {
   background: url("../img/page-menu/icons/menu__arrow.png") 0 0 no-repeat;
 }
 .menu-page__parent._active .submenu-page__item {
-  z-index: 2;
+  z-index: 3;
   transform: translate(0%, 0px);
 }
 .menu-page__parent._active .menu-page__link {
@@ -812,28 +812,99 @@ body._lock {
   color: #333333;
 }
 
-.serch-page.done {
-  padding: 10px 0px 20px;
-}
-@media (min-width: 479px) {
-  .serch-page.done {
-    padding: 10px 20px 20px;
+/*
+.serch-page {
+	&.done {
+		@media (min-width: 479px){padding: 10px 20px 20px;}
+		padding: 10px 0px 20px;
+	}
+	& > *{
+		max-width: 848px;
+
+		display: flex;
+		justify-content: center;
+		align-items: center;text-align: center;
+	}
+
+
+		&__item {
+
+
+			background-color: #ffffff;
+
+
+	&>*{
+		min-height: 39px;
+	}
+
+
+
+		}
+
+
+
+
+	&__sort {
+
+
+font-size: 14px;
+line-height: 1.2;
+font-weight: 300;
+color: #666666;
+background-color: #f68038;
+padding: 0 12px;
+  span {
+	border-bottom: 1px dotted #666666;
   }
+&::before {
+	content: '';
+	background: url('../img/page__serch/serch__loop.png') left no-repeat;
+	width: 17px;
+	height: 17px;
+	padding: 0px 29px 0px 0px;
+
 }
-.serch-page > * {
-  max-width: 848px;
+&::after {
+	content: '';
+background: url('../img/page__serch/serch__arrow.png') right no-repeat;
+width: 10px;height: 10px;
+padding: 0px 0px 0px 22px;
+
+}
+	}
+
+	&__input {
+
+		flex: 1 1 100%;
+		border-bottom: 2px solid #000;//#f2f2f2;
+		border-top: 2px solid  #000;//#f2f2f2;
+	}
+
+	&__btn {
+
+		font-size: 12px;
+line-height: 18px;
+font-weight: 900;
+text-transform: uppercase;
+color: #ffffff;
+background-color: #f68038;
+padding: 0 25px;
+	}
+}*/
+.serch-page {
   display: flex;
-  justify-content: center;
+  position: relative;
+}
+.serch-page__select {
+  display: flex;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.2;
+  font-weight: 300;
+}
+.serch-page__title {
+  display: flex;
   align-items: center;
-  text-align: center;
-}
-.serch-page__item {
-  background-color: #ffffff;
-}
-.serch-page__item > * {
-  min-height: 39px;
-}
-.serch-page__sort {
   font-size: 14px;
   line-height: 1.2;
   font-weight: 300;
@@ -841,36 +912,86 @@ body._lock {
   background-color: #f68038;
   padding: 0 12px;
 }
-.serch-page__sort span {
+.serch-page__title span {
   border-bottom: 1px dotted #666666;
 }
-.serch-page__sort::before {
+.serch-page__title::before {
   content: "";
   background: url("../img/page__serch/serch__loop.png") left no-repeat;
   width: 17px;
   height: 17px;
   padding: 0px 29px 0px 0px;
 }
-.serch-page__sort::after {
+.serch-page__title::after {
   content: "";
   background: url("../img/page__serch/serch__arrow.png") right no-repeat;
   width: 10px;
   height: 10px;
   padding: 0px 0px 0px 22px;
 }
-.serch-page__input {
-  flex: 1 1 100%;
-  border-bottom: 2px solid #000;
-  border-top: 2px solid #000;
+.serch-page__categories {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
 }
-.serch-page__btn {
+.serch-page__input {
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  flex: 1 1 auto;
+}
+.serch-page__input .input {
+  height: 100%;
+}
+.categories-serch {
+  background-color: #fff;
+  border-bottom: 2px solid #f68038;
+  display: none;
+}
+.categories-serch._active {
+  display: flex;
+  flex-direction: column;
+  z-index: 3;
+}
+.categories-serch__row {
+  display: flex;
+}
+.categories-serch__column {
+  flex: 0 1 33.333%;
+  padding: 27px 40px;
+  border-right: 1px solid #dddddd;
+}
+.categories-serch__column:first-child {
+  border-left: 1px solid #dddddd;
+}
+.categories-serch__list li:not(:last-child) {
+  margin: 0px 0px 10px 0px;
+}
+.categories-serch__link {
+  font-size: 12px;
+  line-height: 36px;
+  font-weight: 300;
+  letter-spacing: 0.025em;
+  color: #999999;
+}
+.categories-serch__link:hover {
+  color: #f68038;
+}
+
+.btn {
+  display: inline-flex;
+  padding: 0px 25px;
+  justify-content: center;
+  align-items: center;
+  height: 39px;
+  background-color: #f68038;
+}
+.btn span {
   font-size: 12px;
   line-height: 18px;
   font-weight: 900;
   text-transform: uppercase;
   color: #ffffff;
-  background-color: #f68038;
-  padding: 0 25px;
 }
 
 .sale-page {
