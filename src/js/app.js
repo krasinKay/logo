@@ -41,20 +41,21 @@ const pageContent = document.querySelector('.page__content');
 
 window.addEventListener('resize', serchMove)
 
-function serchMove(){
+function serchMove() {
 	const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 	if (viewport_width <= 640) {
-		if(!serchPage.classList.contains('done')){
+		if (!serchPage.classList.contains('done')) {
 			pageContainer.insertBefore(serchPage, pageContainer.children[0])
-			serchPage.classList.add ('done');
+			serchPage.classList.add('done');
 		}
-		} else { 
-		if (serchPage.classList.contains('done')){
+	} else {
+		if (serchPage.classList.contains('done')) {
 			pageContent.insertBefore(serchPage, pageContent.children[0])
-			serchPage.classList.remove ('done');
+			serchPage.classList.remove('done');
 		}
 
-}}
+	}
+}
 //const viewport_width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
 //if (viewport_width <= 640) {
 //	if (!serchPage.classList.contains('done')) {
@@ -160,9 +161,56 @@ menuPageBurger.addEventListener('click', function (event) {
 	menuPageBody.classList.toggle('_active')
 })
 
-const serchTitle	 = document.querySelector('.serch-page__title');
+const serchTitle = document.querySelector('.serch-page__title');
 const categoriesSerch = document.querySelector('.categories-serch');
 
-serchTitle. addEventListener('click', function(event){
+serchTitle.addEventListener('click', function (event) {
 	categoriesSerch.classList.toggle('_active')
+
 })
+
+const serchItem = document.querySelector('.categories-serch__item');
+//const serchItemInput1 = serchItem.documentElement('input');
+const serchItemInput = document.querySelectorAll('.categories-serch__item input');
+
+for (let index = 0; index < serchItemInput.length; index++) { 
+	let serchItemInputs = serchItemInput[index];
+
+	serchItemInputs. addEventListener('change', function(event){
+		
+		serchItemInputs.classList.toggle('_active')
+
+		const inputActive = document.querySelectorAll('.categories-serch__item input._active');
+
+		
+		let serchSelected = document.querySelector('.serch-page__selected');
+		let nameActiveInput = [];
+if(inputActive.length > 0) {
+	for (let index = 0; index < inputActive.length; index++) {	
+		if(serchItemInput[index].checked){
+			nameActiveInput.push(serchItemInput[index].value)	
+			
+
+			serchSelected.textContent = nameActiveInput;
+
+
+		}}
+}else {
+	serchSelected.textContent = null;
+
+}
+
+		if (inputActive.length > 0) {
+			serchTitle.classList.add('_categories');
+			const categoriesActive = document.querySelector('.categories-active');
+			categoriesActive.innerHTML = categoriesActive.getAttribute('data-text')  + ' ' + inputActive.length;
+			//categoriesActive.insertAdjacentElement = categoriesActive.textContent + ' ' + inputActive.length;
+			
+			
+		}else{serchTitle.classList.remove('_categories')}
+	})
+ }
+
+
+console.log(serchPage);
+
