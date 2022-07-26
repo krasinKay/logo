@@ -172,20 +172,20 @@ serchTitle.addEventListener('click', function (event) {
 const serchItem = document.querySelector('.categories-serch__item');
 //const serchItemInput1 = serchItem.documentElement('input');
 const serchItemInput = document.querySelectorAll('.categories-serch__item input');
+const serchItemLabel = document.querySelectorAll('.categories-serch__item label');
 
 for (let index = 0; index < serchItemInput.length; index++) { 
 	let serchItemInputs = serchItemInput[index];
+	let serchItemLabels = serchItemLabel[index];
 
 	serchItemInputs. addEventListener('change', function(event){
 		
-		serchItemInputs.classList.toggle('_active')
+		serchItemLabels.classList.toggle('_active')
 
-		const inputActive = document.querySelectorAll('.categories-serch__item input._active');
+	
 
-		
-		let serchSelected = document.querySelector('.serch-page__selected');
-		let nameActiveInput = [];
-if(inputActive.length > 0) {
+
+/*if(inputActive.length > 0) {
 	for (let index = 0; index < inputActive.length; index++) {	
 		if(serchItemInput[index].checked){
 			nameActiveInput.push(serchItemInput[index].value)	
@@ -198,16 +198,42 @@ if(inputActive.length > 0) {
 }else {
 	serchSelected.textContent = null;
 
-}
+}*/
+const inputActive = document.querySelectorAll('.categories-serch__item label._active');
+
+		
+let serchSelected = document.querySelector('.serch-page__selected');
+let nameActiveInput = [];
+/*
+if(inputActive.length > 0) {
+	for (let index = 0; index < inputActive.length; index++) {	
+		if(serchItemInput[index].checked){
+			nameActiveInput.push(serchItemLabel[index].textContent)	
+			
+
+			serchSelected.textContent = nameActiveInput;
+
+
+		}}
+}else {
+	serchSelected.textContent = null;
+
+}*/
 
 		if (inputActive.length > 0) {
+		for (let i = 0; i < inputActive.length; i++) {
+			const element = inputActive[i].textContent;
+			nameActiveInput.push(inputActive[i].textContent);
+			serchSelected.innerHTML = nameActiveInput;
+		}
 			serchTitle.classList.add('_categories');
 			const categoriesActive = document.querySelector('.categories-active');
 			categoriesActive.innerHTML = categoriesActive.getAttribute('data-text')  + ' ' + inputActive.length;
 			//categoriesActive.insertAdjacentElement = categoriesActive.textContent + ' ' + inputActive.length;
 			
 			
-		}else{serchTitle.classList.remove('_categories')}
+		}else{serchTitle.classList.remove('_categories');
+		serchSelected.innerHTML = null;}
 	})
  }
 
